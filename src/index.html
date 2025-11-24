@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AaronHHA Astrology</title>
+    <style>
+        /* ---------- Reset & basics ---------- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #0a0a2a, #1a1a4a);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ---------- Header ---------- */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            color: #f8c471;
+            text-shadow: 0 0 20px #f8c471;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #ddd;
+        }
+
+        /* ---------- Astrology Cards ---------- */
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            max-width: 1000px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            width: 200px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px #f8c471;
+        }
+
+        .card img {
+            width: 80px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #f8c471;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #aaa;
+            text-align: center;
+        }
+
+        /* ---------- Animated Stars Background ---------- */
+        .stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: 0.2;
+                transform: scale(0.5);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            100% {
+                opacity: 0.2;
+                transform: scale(0.5);
+            }
+        }
+
+        /* ---------- Responsive ---------- */
+        @media screen and (max-width: 700px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            .cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="stars" id="stars"></div>
+
+    <header>
+        <h1>AaronHHA Astrology</h1>
+        <p>Discover Your Cosmic Path & Personal Horoscope</p>
+    </header>
+
+    <div class="cards">
+        <div class="card">
+            <img src="https://img.icons8.com/emoji/96/000000/aries-emoji.png" alt="Aries">
+            <h3>Aries</h3>
+            <p>Bold and adventurous, Aries thrives on challenge and energy.</p>
+        </div>
+        <div class="card">
+            <img src="https://img.icons8.com/emoji/96/000000/taurus-emoji.png" alt="Taurus">
+            <h3>Taurus</h3>
+            <p>Reliable and grounded, Taurus loves beauty and comfort.</p>
+        </div>
+        <div class="card">
+            <img src="https://img.icons8.com/emoji/96/000000/gemini-emoji.png" alt="Gemini">
+            <h3>Gemini</h3>
+            <p>Curious and adaptable, Gemini enjoys social and intellectual play.</p>
+        </div>
+        <div class="card">
+            <img src="https://img.icons8.com/emoji/96/000000/cancer-emoji.png" alt="Cancer">
+            <h3>Cancer</h3>
+            <p>Emotional and intuitive, Cancer values family and security.</p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 AaronHHA Astrology. All rights reserved.
+    </footer>
+
+    <script>
+        // Create twinkling stars background
+        const starsContainer = document.getElementById('stars');
+        const numStars = 100;
+
+        for (let i = 0; i < numStars; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            const size = Math.random() * 3 + 1;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+
+</body>
+
+</html>
